@@ -9,14 +9,19 @@ $age = $_GET["age"];
 
 //che name sia più lungo di 3 caratteri
 $hasLengthThree = strlen($name) > 3;
+
+
 //che mail contenga un punto e una chiocciola
-$hasDot = strchr($email , "@");
-$hasAt = strchr($email , ".");
-// $hasDotAndAt = preg_match("/[a-zA-Z0-9_-.+]+@[a-zA-Z0-9]+.[a-zA-Z]+/", $email);
+// $hasDot = strchr($email , "@");
+// $hasAt = strchr($email , ".");
+
+
+// https://thisinterestsme.com/php-email-regex/
+$hasDotAndAt = preg_match("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $email);
 //che age sia un numero
 $isNumber = is_numeric($age);
 
-if($hasLengthThree && $hasDot && $hasAt && $isNumber){
+if($hasLengthThree && $hasDotAndAt && $isNumber){
     echo "Accesso riuscito";
     } else {
         echo "Accesso negato";
