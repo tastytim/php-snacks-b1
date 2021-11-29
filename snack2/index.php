@@ -42,12 +42,19 @@ $posts = [
         <main>
        
 <?php
+        // $dateList = array_keys($posts);
+        // for($i=0;$i<count($posts);$i++){
+        //     $date = $dateList[$i];
+        //     echo "<h1>$date</h1>";
+        //     $postsDay = $posts[$date];
+        //     foreach($postsDay as $post){
+        //         echo $post['post'] . '<br>';
+        //         }
+        // }
         $dateList = array_keys($posts);
         for($i=0;$i<count($posts);$i++){
-            $date = $dateList[$i];
-            echo "<h1>$date</h1>";
-            $postsDay = $posts[$date];
-            foreach($postsDay as $post){
+            echo "<h1>$dateList[$i]</h1>";
+            foreach($posts[$dateList[$i]] as $post){
                 echo $post['post'] . '<br>';
                 }
         }
