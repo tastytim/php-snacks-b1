@@ -28,8 +28,6 @@ $posts = [
     ],
 ];
 
-var_dump($posts);
-
 ?>
 
 
@@ -45,11 +43,13 @@ var_dump($posts);
        
 <?php
         $dateList = array_keys($posts);
-        for($i=0;$i<count($dateList);$i++){
-            echo "<h1>$dateList[$i]</h1>";
-            
-
-            
+        for($i=0;$i<count($posts);$i++){
+            $date = $dateList[$i];
+            echo "<h1>$date</h1>";
+            $postsDay = $posts[$date];
+            foreach($postsDay as $post){
+                echo $post['post'] . '<br>';
+                }
         }
 ?>
 
