@@ -1,23 +1,17 @@
 <?php
 
-
-
-$name = $_GET["name"];
-$email = $_GET["email"];
-$age = $_GET["age"];
-
+// https://stackoverflow.com/questions/30191521/check-if-a-variable-is-undefined-in-php
+$name = $_GET['name'] = isset($_GET['name']) ? $_GET['name'] : '';
+$email = $_GET['email'] = isset($_GET['email']) ? $_GET['email'] : '';
+$age = $_GET['age'] = isset($_GET['age']) ? $_GET['age'] : '';
 
 //che name sia più lungo di 3 caratteri
 $hasLengthThree = strlen($name) > 3;
 
-
 //che mail contenga un punto e una chiocciola
-// $hasDot = strchr($email , "@");
-// $hasAt = strchr($email , ".");
-
-
 // https://thisinterestsme.com/php-email-regex/
 $hasDotAndAt = preg_match("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $email);
+
 //che age sia un numero
 $isNumber = is_numeric($age);
 
@@ -26,9 +20,7 @@ if($hasLengthThree && $hasDotAndAt && $isNumber){
     } else {
         echo "Accesso negato";
     }
-
 ?>
-
 
 <!DOCTYPE html>
 <meta charset="UTF-8">
